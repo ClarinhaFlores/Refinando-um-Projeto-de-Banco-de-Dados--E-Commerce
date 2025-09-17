@@ -10,7 +10,7 @@ As relações base são:
 - "pedido" pode ter apenas 1 cliente, porém o "cliente" pode ter 1 ou mais pedidos;
 
 Para o desafio, foi proposta a implementação de:
-Cliente PJ e PF – Uma conta pode ser PJ ou PF, mas não pode ter as duas informações;
+Cliente PJ e PF – Uma conta pode ser apenas PJ ou PF;
 Pagamento – Pode ter cadastrado mais de uma forma de pagamento;
 Entrega – Possui status e código de rastreio;
 
