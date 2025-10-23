@@ -14,12 +14,15 @@ Cliente PJ e PF – Uma conta pode ser apenas PJ ou PF;
 Pagamento – Pode ter cadastrado mais de uma forma de pagamento;
 Entrega – Possui status e código de rastreio;
 
-Para resolver foram adicionadas as seguintes entidades: "Pessoa", "Pessoa Fisica", "Pessoa Juridica", "Pagamento", "Cartao", "Boleto" e "Entrega"
+Para resolver foram adicionadas as seguintes entidades: "Pessoa", "Pessoa Fisica", "Pessoa Juridica", "Pagamento", "Cartao", "Tipo_Cartao", "Info_Cartao", "Boleto" e "Entrega"
 
 Resultando nas seguintes relações:
 - "pessoa" é uma generalização com informações base para "pessoa juridica" e "pessoa fisica", que para existirem precisam de uma "pessoa";
 - "cliente" pode ser, ou, uma "pessoa juridica" ou uma "pessoa fisica", nunca os dois, portanto para isso ocorrer, um "cliente" precisa ser uma "pessoa", que terá seu id associado a apenas um dos dois;
 - "pagamento" é uma generalização para "boleto" e "cartão";
+- "pagamento" possuí a variável 'tipoPagamento' que permite ao cliente escolher pagar, ou por boleto ou com cartão;
+- "boleto" é uma especialização de "pagamento", sendo um 'tipoPagamento";
+- "cartao" é uma especialização de "pagamento", sendo um 'tipoPagamento', para ele existir é preciso o "info_Cartao" e o "tipo_Cartao";
+- "info_cartao" é uma tabela que guarda informações do tipo de cartão, podendo ser 'débito' ou crédito;
 - "cliente" pode ter 1 ou mais formas de pagamento, e uma forma de "pagamento" pode estar relacionada a 1 ou mais clientes;
-- "pagamento" também está diretamente relacionado a "cliente" e "terceiro-vendedor", de modo que suas informações possam ser 'puxadas'/utilizadas ao gerar uma forma de pagamento;
-- "pedido" só pode ter 1 entrega, já uma "entrega" pode ter 1 ou mais pedidos.
+- "pedido" só pode ter 1 entrega, e uma "entrega"  só pode ter 1 pedido.
